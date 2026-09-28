@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Meta Login Test</title>
+</head>
+<body>
+
+<h2>Meta Login Test</h2>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId: '913131494998281',
+      cookie: true,
+      xfbml: true,
+      version: 'v26.0'
+    });
+  };
+
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      console.log(response);
+      document.getElementById('result').textContent =
+        JSON.stringify(response, null, 2);
+    });
+  }
+</script>
+
+<script async defer crossorigin="anonymous"
+  src="https://connect.facebook.net/en_US/sdk.js">
+</script>
+
+<fb:login-button
+  config_id="1457648529619738"
+  onlogin="checkLoginState();">
+</fb:login-button>
+
+<pre id="result"></pre>
+
+</body>
+</html>
